@@ -1,4 +1,4 @@
-import {GET_ALL, GET_ALL_DIETS, SEARCH_BY_NAME, FILTER_BY_DIETS, ORDER_BY_SCORE, ORDER_BY_NAME} from '../actions/actions_types';
+import {GET_ALL, GET_ALL_DIETS, SEARCH_BY_NAME, FILTER_BY_DIETS, ORDER_BY_SCORE, ORDER_BY_NAME, RECIPE_DETAIL, POST_RECIPE, FILTER_BY_CREATOR} from '../actions/actions_types';
 
 const initialState = {
     recipes: [],
@@ -23,7 +23,7 @@ function rootReducer(state=initialState, action) {
         case SEARCH_BY_NAME:
             return {
                 ...state,
-                recipes: action.payload
+                recipes: action.data
             };
         case FILTER_BY_DIETS:
             const allRecipes = state.allRecipes
@@ -32,7 +32,7 @@ function rootReducer(state=initialState, action) {
             return {
                 ...state,
                 recipes: dietsFilter
-            }
+            };
         case ORDER_BY_SCORE:
             let orderScore = action.data === "Score-+" ? state.recipes.sort((a, b) => a.healthScore - b.healthScore): state.recipes.sort((a, b) => b.healthScore - a.healthScore);
             return {
@@ -61,6 +61,21 @@ function rootReducer(state=initialState, action) {
                 ...state,
                 recipes: action.data === "default" ? state.recipes : aZRecipes,
             };
+        case RECIPE_DETAIL:
+            return {
+                ...state,
+                recipeDetail: action.data,
+            };
+        case POST_RECIPE:
+            return {
+                ...state,
+            };
+        case FILTER_BY_CREATOR:
+            const creator = action.data === 'createdInDb' ? state.allRecipes.filter(el => el.data_base) : state.allRecipes.filter(el => !el.data_base)
+            return {
+                ...state,
+                recipes: action.data === 'ALL' ? state.allRecipes : creator,
+            }
 
         default:
             return state;
