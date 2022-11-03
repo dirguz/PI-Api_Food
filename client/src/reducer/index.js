@@ -1,10 +1,11 @@
-import {GET_ALL, GET_ALL_DIETS, SEARCH_BY_NAME, FILTER_BY_DIETS, ORDER_BY_SCORE, ORDER_BY_NAME, RECIPE_DETAIL, POST_RECIPE, FILTER_BY_CREATOR} from '../actions/actions_types';
+import {GET_ALL, GET_ALL_DIETS, SEARCH_BY_NAME, FILTER_BY_DIETS, ORDER_BY_SCORE, ORDER_BY_NAME, RECIPE_DETAIL, POST_RECIPE, FILTER_BY_CREATOR, RESET_DETAIL, RESET_RECIPES} from '../actions/actions_types';
 
 const initialState = {
     recipes: [],
     allRecipes: [],
     diets: [],
-    recipeDetail: {},
+    detail: [],
+    filtered:[],
 };
 
 function rootReducer(state=initialState, action) {
@@ -31,16 +32,19 @@ function rootReducer(state=initialState, action) {
             console.log(dietsFilter)
             return {
                 ...state,
-                recipes: dietsFilter
+                recipes: dietsFilter,
+                filtered: dietsFilter
             };
         case ORDER_BY_SCORE:
-            let orderScore = action.data === "Score-+" ? state.recipes.sort((a, b) => a.healthScore - b.healthScore): state.recipes.sort((a, b) => b.healthScore - a.healthScore);
+            let sorted = state.filtered.length ? state.filtered:state.allRecipes
+            let orderScore = action.data === "Score-+" ? sorted.sort((a, b) => a.healthScore - b.healthScore): state.recipes.sort((a, b) => b.healthScore - a.healthScore);
             return {
                 ...state,
-                recipes: action.data === "Order By Score" ? state.recipes : orderScore,
+                recipes: action.data === "Order By Score" ? state.allRecipes : orderScore,
             };
         case ORDER_BY_NAME:
-            let aZRecipes = action.data === "AZ" ? state.recipes.sort((a, b) => {
+            let sortedName = state.filtered.length ? state.filtered:state.allRecipes
+            let aZRecipes = action.data === "AZ" ? sortedName.sort((a, b) => {
                         if (a.name.toLowerCase() > b.name.toLowerCase()) {
                             return 1;
                         }
@@ -48,7 +52,7 @@ function rootReducer(state=initialState, action) {
                             return -1;
                         }
                         return 0;
-                    }): state.recipes.sort((a, b) => {
+                    }): sortedName.sort((a, b) => {
                         if (a.name.toLowerCase() < b.name.toLowerCase()) {
                             return 1;
                         }
@@ -59,23 +63,35 @@ function rootReducer(state=initialState, action) {
                     });
             return {
                 ...state,
-                recipes: action.data === "default" ? state.recipes : aZRecipes,
+                recipes: action.data === "default" ? state.allRecipes : aZRecipes,
             };
         case RECIPE_DETAIL:
             return {
                 ...state,
-                recipeDetail: action.data,
+                detail: action.data,
             };
         case POST_RECIPE:
             return {
                 ...state,
             };
         case FILTER_BY_CREATOR:
-            const creator = action.data === 'createdInDb' ? state.allRecipes.filter(el => el.data_base) : state.allRecipes.filter(el => !el.data_base)
+            const filterCreator = state.filtered.length ? state.filtered:state.allRecipes;
+            const creator = action.data === 'createdInDb' ? filterCreator.filter(el => el.data_base) : filterCreator.filter(el => !el.data_base)
             return {
                 ...state,
                 recipes: action.data === 'ALL' ? state.allRecipes : creator,
-            }
+            };
+        case RESET_DETAIL:
+            return{
+                ...state,
+                detail: [''],
+            };
+        case RESET_RECIPES:
+        return{
+            ...state,
+            filtered:[],
+            recipes:[]
+        }
 
         default:
             return state;
