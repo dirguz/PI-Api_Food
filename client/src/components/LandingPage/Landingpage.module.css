@@ -39,7 +39,7 @@
     background: transparent;
     overflow: hidden;
     border: 1px solid #dae4ee;
-    color: #6d7277;
+    color: #dae4ee;
 }
 .button:hover{
     color: #fff;
@@ -57,7 +57,7 @@
     bottom: 0;
     height: 0;
     width: 100%;
-    background: #9ec4e9;
+    background: #FF533D;
 }
 
 

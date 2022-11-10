@@ -1,5 +1,5 @@
 .cardContainer{
-  width: 100vh;
+  width: 100%;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -18,7 +18,7 @@
 
 .cardContainer .card .face.face1{
   position: relative;
-  background: grey;
+  background: #AB987A;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@
 }
 
 .cardContainer .card:hover .face.face1{
-  background: #50021caf;
+  background: #FF533D;
   transform: translateY(0);
 }
 
@@ -40,26 +40,31 @@
 }
 
 .cardContainer .card .face.face1 .content img{
-  max-width: 250px;
+  max-width: 280px;
+  border:2px solid#FF533D ;
+  border-radius: 5px;
 }
 
 .cardContainer .card .face.face1 .content h3{
   margin: 0;
   padding: 0;
-  color: rgb(5, 5, 5);
+  color: #F5F5F5;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #AB987A;
+  border:2px solid #0F1626
 }
 
 .cardContainer .card .face.face2{
   position: relative;
-  background: rgb(61, 94, 241);
+  background: #F5F5F5;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 20px 50px black;
   transform: translateY(-100px);
 }
 
@@ -70,7 +75,7 @@
 .cardContainer .card .face.face2 .content p{
   margin: 0;
   padding: 0;
-  color: black;
+  color: #0F1626;
 }
 
 .cardContainer .card .face.face2 .content .button{

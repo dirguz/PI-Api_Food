@@ -1,0 +1,44 @@
+.pageContainer{
+    width: fit-content;
+    max-width: 100%;
+    background-color: #F5F5F5;
+    padding: 10px 20px;
+    border-radius: 80px;
+    margin:0 auto;
+}
+.pagesList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    gap: 10px;
+}
+.itemList{
+    list-style-type: none;
+    width: 45px;
+    height: 30px;
+    padding: 10px;
+    color:#0F1626;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+.itemList:hover{
+    background-color: #F5F5F5;
+    color: #AB987A;
+}
+.active{
+    background-color: #0F1626;
+    list-style-type: none;
+    width: 45px;
+    height: 30px;
+    padding: 10px;
+    color:#F5F5F5;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 50px;
+    font-weight: bold;
+}

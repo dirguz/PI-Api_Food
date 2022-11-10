@@ -1,0 +1,127 @@
+.detailContainer{
+    width: 100%;
+    min-height: 100vh;
+    max-height: fit-content;
+    background-color:#0F1626;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.detailBox{
+    width:fit-content;
+    min-width: 60%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 25px;
+    background-color: #F5F5F5;
+    margin: 15px auto;
+}
+.detailHeader{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+.detailHeader_title{
+    text-transform: capitalize;
+    color: #FF533D;
+}
+.detailHealth{
+    align-self: flex-start;
+    color: #0F1626;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    font-size:20px;
+}
+.detailMiddle{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    height: fit-content;
+    
+}
+.detailSummary{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 1rem;
+    height: 100%;
+    text-align: left;
+}
+.detailSteps{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 1rem;
+    height: 100%;
+    text-align: left;
+}
+.detailButton{
+    padding: 10px;
+    border: transparent;
+    background: #F5F5F5;
+    border-radius: 5px;
+    color:#0F1626;
+    font-weight: bolder;
+    cursor:pointer;
+    transition: all 0.2s ease-in-out;
+}
+.detailButton:hover{
+    background: #0F1626;
+    color: #F5F5F5;
+}
+.detailImg{
+    min-height: 300px;
+    width: 300px;
+    border: 1px solid #FF533D;
+    border-radius: 10px;
+}
+.detailImg img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+.detailDiets{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 50px;
+    text-align: justify;
+    color: #0F1626;
+}
+
+/* media queries */
+@media screen and (max-width: 768px){
+    .detailBox{
+        width:90%;
+        gap: 10px;
+        padding: 25px 10px;
+        margin: 15px auto;
+    }
+    .detailHeader_title{
+        font-size: 25px;
+        word-wrap: break-word;
+    }
+    .detailMiddle{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .detailImg{
+        min-height: 150px;
+        width: 100%;
+    }   
+}

@@ -68,15 +68,14 @@ function rootReducer(state=initialState, action) {
         case RECIPE_DETAIL:
             return {
                 ...state,
-                detail: action.data,
+                detail:action.data,
             };
         case POST_RECIPE:
             return {
                 ...state,
             };
         case FILTER_BY_CREATOR:
-            const filterCreator = state.filtered.length ? state.filtered:state.allRecipes;
-            const creator = action.data === 'createdInDb' ? filterCreator.filter(el => el.data_base) : filterCreator.filter(el => !el.data_base)
+            const creator = action.data === 'createdInDb' ? state.allRecipes.filter(el => el.data_base) : state.allRecipes.filter(el => !el.data_base)
             return {
                 ...state,
                 recipes: action.data === 'ALL' ? state.allRecipes : creator,
@@ -84,7 +83,7 @@ function rootReducer(state=initialState, action) {
         case RESET_DETAIL:
             return{
                 ...state,
-                detail: [''],
+                detail: [],
             };
         case RESET_RECIPES:
         return{

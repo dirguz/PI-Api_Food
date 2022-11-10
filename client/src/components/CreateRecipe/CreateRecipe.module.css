@@ -1,0 +1,144 @@
+.createContainer{
+    height: 100vh;
+    width: 100%;
+    background-color: #0F1626;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+.formContainer{ 
+    border-radius: 0.5em;
+	box-shadow: 0 0 2em 0 #AB987A;
+	display: flex;
+    flex-direction: column;
+	overflow: hidden;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+	width: 70%;
+}
+
+.formTitle{
+    margin-top: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+    color:#FF533D;
+    position: relative;
+    box-shadow: inset;
+}
+
+.inputBoxHealt{
+    margin-left: 150px;
+    width: 70%;
+}
+
+.inputHealt{
+    width: 5%;
+    padding-left: 20px;
+}
+
+.inputBox{
+    margin-left: 150px;
+    width: 70%;
+}
+.inputBox input{
+    height: 30px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 3px;
+    transition: all 0.3s ease-in-out;
+}
+.inputBox input:focus{
+    border-color:#FF533D;
+}
+.etiqueta{
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin:10px 0 12px 0;
+    color: #AB987A;
+}
+
+.dietTitle{
+    font-size: 18px;
+    display: blok;
+    font-weight: bold;
+    margin:20px 0 12px 0;
+    color: #0F1626;
+}
+
+.buttoncenter{
+    padding: 0 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.textarea{
+    width: 60%;
+    height: 10vh;
+}
+.button{
+    padding: 10px;
+    border: transparent;
+    background: #F5F5F5;
+    border-radius: 5px;
+    color:#0F1626;
+    font-weight: bolder;
+    cursor:pointer;
+    transition: all 0.2s ease-in-out;
+}
+.button:hover{
+    background: #0F1626;
+    color: #F5F5F5;
+}
+
+.buttonSubmit{
+    padding: 10px;
+    border: transparent;
+    background: #0F1626;
+    border-radius: 5px;
+    color:#F5F5F5;
+    font-weight: bolder;
+    cursor:pointer;
+    transition: all 0.2s ease-in-out;
+    
+}
+.buttonSubmit:hover{
+    color: #0F1626;
+    background: #F5F5F5;
+}
+
+.errores{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 350px;
+    color:#FF533D;
+}
+
+/* media queries */
+@media screen and (max-width: 768px){
+    .createContainer{
+        height: 100%;
+    }
+    .formContainer{
+        width: 90%;
+        padding: 25px 10px;
+        margin:15px 0;
+        border-radius: 5px;
+    }
+    .dietContainer{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin:14px 0;
+        gap: 10px;
+    }
+}

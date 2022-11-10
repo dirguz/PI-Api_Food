@@ -34,11 +34,20 @@ export const orderByName = (name) => {
     return {type: ORDER_BY_NAME, data: name}
 }
 
-export const recipe_Detail = (id) => (dispatch) => {
-        return fetch(`http://localhost:3001/recipes/${id}`)
-        .then(response => response.json())
-        .then(info => dispatch({type:RECIPE_DETAIL, data:info}))
-        .catch(error => dispatch({type:RECIPE_DETAIL, data:''}))
+export const recipe_Detail = (id) => {
+    return async function(dispatch) {
+        try {
+            const info = await axios.get('http://localhost:3001/recipes/'+id)
+            return dispatch({
+                type: RECIPE_DETAIL,
+                data: info.data})
+        } catch (error) {
+            return dispatch({
+                type: RECIPE_DETAIL,
+                data: {error:error.message}
+            })
+        }
+    };
 }
 
 export const post_Recipe = (data) => {

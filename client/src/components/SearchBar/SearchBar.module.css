@@ -1,8 +1,8 @@
 .searchContainer{
-    width: 70%;
+    width: 80%;
     max-width: 500px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.603);
+    background-color: #F5F5F5;
 }
 
 .searchInput{
@@ -14,14 +14,16 @@
 
 .searchButton{
     padding: 10px;
+    font-weight: bold;
+    border-radius: 10px;
     border-color: transparent;
-    background-color: transparent;
-    color: rgb(15, 15, 15);
+    background-color: #FF532D;
+    color: #0F1626;
     transition: all 0.3s ease-in-out;
 }
 
 .searchButton:hover{
     font-weight: bold;
-    color:rgb(255, 254, 254);
+    color:#F5F5F5;
     cursor: pointer;
 }

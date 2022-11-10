@@ -18,7 +18,7 @@ const allRecipesApi = async () => {
                 name: e.title,
                 dietType: e.diets,
                 summary: e.summary,
-                healthScore: e.healthScore,
+                health_score: e.healthScore,
                 image: e.image,
                 dishTypes: e.dishTypes,
                 instructions: e.analyzedInstructions[0]?.steps.map(s => { return s.step })
@@ -77,12 +77,12 @@ router.get('/recipes/:id', async (req, res) => {
                 name: el.name,
                 dietType: el.dietType,
                 summary: el.summary,
-                healthScore: el.healthScore,
+                health_score: el.health_score,
                 dishTypes: el.dishTypes,
                 image: el.image,
                 instructions: el.instructions
             })
-          }
+          }console.log("peticion realizada")
         })
 
     } catch (error) {
@@ -92,12 +92,12 @@ router.get('/recipes/:id', async (req, res) => {
 });
 
 router.post('/recipe' , async (req, res) => {
-    let {name, summary, healthScore, instructions, image, dietType, dishTypes} = req.body;
+    let {name, summary, health_score, instructions, image, dietType, dishTypes} = req.body;
     try {
         const newRecipe = await Recipe.create({
             name,
             summary,
-            healthScore,
+            health_score,
             instructions,
             image,
             dishTypes
