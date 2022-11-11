@@ -43,10 +43,10 @@ function DetailRecipe() {
                       </p> 
                     )
                   })}
-                  {!details.dietType.includes('gluten free') && <p>✔gluten free</p>}
-                  {!details.dietType.includes('vegan') && <p>✔vegan</p>}
-                  {!details.dietType.includes('vegetarian') && <p>✔vegetarian</p>}
-                  {!details.dietType.includes('dairy free') && <p>✔dairy Free</p>}
+                  {(!details.dietType.includes('gluten free') || Object.values(details.diets[0])!=='gluten free') && <p>✔gluten free</p>}
+                  {(!details.dietType.includes('vegan') || Object.values(details.diets[0])!=='vegan') && <p>✔vegan</p>}
+                  {(!details.dietType.includes('vegetarian') || Object.values(details.diets[0])!=='vegetarian') && <p>✔vegetarian</p>}
+                  {(!details.dietType.includes('dairy free') || Object.values(details.diets[0])!=='dairy free') && <p>✔dairy Free</p>}
                 </div>
               </div>
               <div className={s.detailSummary} >

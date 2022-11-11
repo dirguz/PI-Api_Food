@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const validate = (input) => {
     let errors = {};
-    input.title
-        ? (errors.title = "")
-        : (errors.title = "You must name the recipe");
+    input.name
+        ? (errors.name = "")
+        : (errors.name = "You must name the recipe");
     input.summary
         ? (errors.summary = "")
         : (errors.summary = "You must provide a summary");
@@ -52,7 +52,7 @@ function CreateRecipe() {
         instructions:'',
         image:'',
         dietType: [],
-        dishTypes:''
+        dishTypes:[]
     })
     
     const handleChange = (e) => {
@@ -85,7 +85,7 @@ function CreateRecipe() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (input.title) {
+        if (input.name) {
             console.log(input)
             dispatch(post_Recipe(input))
             alert('Recipe created succesfully!')
@@ -94,7 +94,7 @@ function CreateRecipe() {
                 summary: '',
                 image: '',
                 dietType: [],
-                dishTypes: '',
+                dishTypes:[],
                 health_score: '',
                 instructions: '',
             })
@@ -120,8 +120,8 @@ function CreateRecipe() {
 
                 <label className={s.etiqueta}>Name:</label>
                 <div className={s.inputBox}>
-                    <input type='text' placeholder='Complete here...' value={input.title} name='name' onChange={(e) => handleChange(e)} />
-                    {errors.title && <p className={s.errores}>{errors.title}</p>}
+                    <input type='text' placeholder='Complete here...' value={input.name} name='name' onChange={(e) => handleChange(e)} />
+                    {errors.name && <p className={s.errores}>{errors.name}</p>}
                 </div>
 
                 <label className={s.etiqueta}>Summary:</label>

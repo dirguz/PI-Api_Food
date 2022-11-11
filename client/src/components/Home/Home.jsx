@@ -65,7 +65,7 @@ function Home() {
                 name={e.name}
                 image={e.image}
                 health_score={e.health_score}
-                dietType={e.dietType || e.dietType.map(d=>d.name)}
+                dietType={e.dietType || e.diets.map(d=>d.name)}
                 dishTypes={e.dishTypes}
                 createdInDB={e.createdInDB}
                 />)

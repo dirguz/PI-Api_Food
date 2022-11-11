@@ -37,7 +37,7 @@ function rootReducer(state=initialState, action) {
             };
         case ORDER_BY_SCORE:
             let sorted = state.filtered.length ? state.filtered:state.allRecipes
-            let orderScore = action.data === "Score-+" ? sorted.sort((a, b) => a.healthScore - b.healthScore): state.recipes.sort((a, b) => b.healthScore - a.healthScore);
+            let orderScore = action.data === "Score-+" ? sorted.sort((a, b) => a.health_score - b.health_score): state.recipes.sort((a, b) => b.health_score - a.health_score);
             return {
                 ...state,
                 recipes: action.data === "Order By Score" ? state.allRecipes : orderScore,
