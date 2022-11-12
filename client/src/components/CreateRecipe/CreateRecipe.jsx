@@ -69,7 +69,7 @@ function CreateRecipe() {
     const handleCheck = (e) => {
         e.preventDefault();
         if (input.dietType.includes(e.target.value)) {
-            return 'Diet Type exists'
+            alert('Diet Type exists');
         } else {
             setInput((input) => ({
                 ...input,
@@ -79,7 +79,6 @@ function CreateRecipe() {
                 ...input,
                 [e.target.name]: e.target.value
             }));
-            console.log(input)
         }
     }
 
@@ -165,7 +164,6 @@ function CreateRecipe() {
                             ))
                         }
                     </select>
-                    <ul><li>{input.dietType}</li></ul>
                     {errors.diets && <p className={s.errores}>{errors.diets}</p>}
                 </div>
                 <div className={s.buttoncenter}>

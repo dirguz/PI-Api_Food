@@ -12,6 +12,7 @@ function DetailRecipe() {
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch()
     const details = useSelector(state => state.detail)
+    const allRecipes = useSelector(state => state.allRecipes)
 
     if(Object.keys(details).length > 0 && loading){
       setLoading(false);
@@ -29,7 +30,7 @@ function DetailRecipe() {
                 <Link to='/home'><button className={s.detailButton}>Go back</button></Link>
                 <h1 className={s.detailHeader_title}>{details.name}</h1>
               </div>
-              <p className={s.detailHealth}>HealthScore: {details.healthScore}</p>
+              <p className={s.detailHealth}>HealthScore: {details.health_score}</p>
               <div className={s.detailMiddle}>
                 <div className={s.detailImg}>
                   <img src={details.image} alt={details.name} />
@@ -43,10 +44,6 @@ function DetailRecipe() {
                       </p> 
                     )
                   })}
-                  {(!details.dietType.includes('gluten free') || Object.values(details.diets[0])!=='gluten free') && <p>✔gluten free</p>}
-                  {(!details.dietType.includes('vegan') || Object.values(details.diets[0])!=='vegan') && <p>✔vegan</p>}
-                  {(!details.dietType.includes('vegetarian') || Object.values(details.diets[0])!=='vegetarian') && <p>✔vegetarian</p>}
-                  {(!details.dietType.includes('dairy free') || Object.values(details.diets[0])!=='dairy free') && <p>✔dairy Free</p>}
                 </div>
               </div>
               <div className={s.detailSummary} >

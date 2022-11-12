@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const axios = require('axios');
-const { Recipe, Diet } = require('../db');
+const { Recipe, DietType } = require('../db');
 const dotenv= require('dotenv');
 dotenv.config();
 const { API_KEY1 } = process.env;
@@ -33,7 +33,7 @@ const allRecipesApi = async () => {
 const allRecipesDB = async () => {
     return await Recipe.findAll({
         include: {
-            model: Diet,
+            model: DietType,
             attributes: ['name'],
             through: {
                 attributes: [],
@@ -75,7 +75,7 @@ router.get('/recipes/:id', async (req, res) => {
             res.json({
                 id: el.id,
                 name: el.name,
-                dietType: el.dietType,
+                dietType: el.dietType || el.dietTypes.map(el => el.name),
                 summary: el.summary,
                 health_score: el.health_score,
                 dishTypes: el.dishTypes,
@@ -102,10 +102,10 @@ router.post('/recipe' , async (req, res) => {
             image,
             dishTypes
         });
-        let [dietDB, created] = await Diet.findOrCreate({
+        let dietDB = await DietType.findAll({
             where:{ name: dietType }
             });
-        newRecipe.addDiet(dietDB);
+        newRecipe.addDietType(dietDB);
         //console.log(dietDB,created);
         res.status(200).json({mensaje: 'Receta creada exitosamente'});
 
