@@ -14,17 +14,16 @@ function Card({id, image, name, health_score, dietType, dishTypes}) {
             </div>
             <div className={`${s.face} ${s.face2}`}>
               <div className={s.content}>
+                <p>Diets:</p>
+               <div className={s.dietas}>
                 {dietType?.map(diet => {
                 return (
                     <p key={diet}>✔{diet}</p>
                 )
                 })}
-                {!dietType.includes('gluten free') && <p>✔gluten free</p>}
-                {!dietType.includes('vegan') && <p>✔vegan</p>}
-                {!dietType.includes('vegetarian') && <p>✔vegetarian</p>}
-                {!dietType.includes('dairy free') && <p>✔dairy Free</p>}
+               </div>
                 <p>Health Score: {health_score}</p>
-                <p>{dishTypes}</p>
+                <p>Dish Types: {dishTypes}</p>
                 <Link to={`/recipes/${id}`}  key = {id} >
                 <button className={s.button}>Recipe detail</button>
                 </Link>

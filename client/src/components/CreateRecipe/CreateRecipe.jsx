@@ -6,26 +6,11 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const validate = (input) => {
     let errors = {};
-    input.name
-        ? (errors.name = "")
-        : (errors.name = "You must name the recipe");
-    input.summary
-        ? (errors.summary = "")
-        : (errors.summary = "You must provide a summary");
-    input.dishTypes
-        ? (errors.dishTypes = "")
-        : (errors.dishTypes = "You must provide a dish type");
-    input.instructions
-        ? (errors.instructions = "")
-        : (errors.instructions = "You must provide an instruction");
-    input.diets === 0
-        ? (errors.diets = "Choose at least one diet")
-        : (errors.diets = "");
-    if (!input.score) {
-        errors.score = 'You must provide a score'
-    } else if (input.score > 100 || input.score < 0) {
-        errors.score = 'the range must be between 1 and 100'
-    }
+    input.name ? (errors.name = ""): (errors.name = "You must name the recipe");
+    input.summary ? (errors.summary = ""): (errors.summary = "You must provide a summary");
+    input.dishTypes ? (errors.dishTypes = ""): (errors.dishTypes = "You must provide a dish type");
+    input.instructions ? (errors.instructions = ""): (errors.instructions = "You must provide an instruction");
+    input.diets === 0 ? (errors.diets = "Choose at least one diet"): (errors.diets = "");
     if (!input.health_score) {
         errors.health_score = 'You must provide a healthScore'
     } else if (input.health_score > 100 || input.health_score < 0) {
@@ -103,13 +88,6 @@ function CreateRecipe() {
         }
     }
 
-    // const handleDelete = (el) => {
-    //     setInput({
-    //         ...input,
-    //         dietType: input.diets.filter(dietType => dietType !== el)
-    //     })
-    // }
-
     useEffect(() => {dispatch(get_Diets())},[dispatch]) 
 
   return (
@@ -171,12 +149,6 @@ function CreateRecipe() {
                     <Link to="/home"><button className={s.button}>Go Back to Home</button></Link>
                 </div>
             </form>
-            {/* {input.dietType.map(el =>
-                <div key={el} className={s.delDiet}>
-                    <p> {el}</p>
-                    <button className={s.btnX} onClick={() => handleDelete(el)}>X</button>
-                </div>
-            )} */}
             <br />
 
 

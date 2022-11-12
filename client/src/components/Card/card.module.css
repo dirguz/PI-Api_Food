@@ -11,8 +11,8 @@
 }
 
 .cardContainer .card .face{
-  width: 300px;
-  height: 200px;
+  width: 330px;
+  height: 240px;
   transition: 0.5s;
 }
 
@@ -23,7 +23,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
-  transform: translateY(100px);
+  transform: translateY(140px);
 }
 
 .cardContainer .card:hover .face.face1{
@@ -62,7 +62,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
   box-shadow: 0 20px 50px black;
   transform: translateY(-100px);
@@ -72,14 +72,18 @@
   transform: translateY(0);
 }
 
+.dietas{
+  display: grid;
+  grid-template-columns: repeat(4,0.5fr);
+  margin-bottom: 0;
+}
 .cardContainer .card .face.face2 .content p{
-  margin: 0;
-  padding: 0;
+  margin: 2px;
   color: #0F1626;
 }
 
 .cardContainer .card .face.face2 .content .button{
-  margin: 15px 0 0;
+  margin-top: 2px;
   display:  inline-block;
   text-decoration: none;
   font-weight: 900;

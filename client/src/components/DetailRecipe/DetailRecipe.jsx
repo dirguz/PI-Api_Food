@@ -12,7 +12,7 @@ function DetailRecipe() {
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch()
     const details = useSelector(state => state.detail)
-    const allRecipes = useSelector(state => state.allRecipes)
+    // const allRecipes = useSelector(state => state.allRecipes)
 
     if(Object.keys(details).length > 0 && loading){
       setLoading(false);
