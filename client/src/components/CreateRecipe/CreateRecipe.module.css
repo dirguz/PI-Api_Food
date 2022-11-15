@@ -1,14 +1,11 @@
 .createContainer{
-    height: 100vh;
-    width: 100%;
-    background-color: #0F1626;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:center;
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+    background:#0F1626;
 }
 
 .formContainer{ 
@@ -122,6 +119,38 @@
     margin-bottom: 0;
     margin-left: 350px;
     color:#FF533D;
+}
+
+.delDiet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color:#FF533D;
+    margin-left: 20px;
+    
+}
+.btnX{
+    margin-left: 10px;
+    border-radius: 25px;
+}
+.btnX:hover{
+    animation: hover 1s linear;
+    cursor: pointer;
+    background-color: #FF533D;
+    color: #F5F5F5;
+}
+@keyframes hover{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.5);
+    }
+}
+.contenDiet{
+    display: flex;
+
 }
 
 /* media queries */

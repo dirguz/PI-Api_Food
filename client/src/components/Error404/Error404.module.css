@@ -151,4 +151,6 @@
     color: var(--red);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
 }

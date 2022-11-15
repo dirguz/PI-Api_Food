@@ -58,7 +58,7 @@ function CreateRecipe() {
         } else {
             setInput((input) => ({
                 ...input,
-                dietType: [...diets, e.target.value],
+                dietType: [...input.dietType, e.target.value],
             }));
             setErrors(validate({
                 ...input,
@@ -86,6 +86,13 @@ function CreateRecipe() {
         } else {
             alert('Please complete all fields')
         }
+    }
+
+    function handleDelete(el) {
+        setInput({
+            ...input,
+            dietType: input.dietType.filter(dietType => dietType !== el)
+        })
     }
 
     useEffect(() => {dispatch(get_Diets())},[dispatch]) 
@@ -144,11 +151,20 @@ function CreateRecipe() {
                     </select>
                     {errors.diets && <p className={s.errores}>{errors.diets}</p>}
                 </div>
+                
                 <div className={s.buttoncenter}>
                     <button className={s.button} type='submit'>Create</button>
                     <Link to="/home"><button className={s.button}>Go Back to Home</button></Link>
                 </div>
             </form>
+            <div className={s.contenDiet}>
+                {input.dietType.map(el =>
+                    <div key={el} className={s.delDiet}>
+                        <p>{el}</p>
+                        <button className={s.btnX} onClick={() => handleDelete(el)}>X</button>
+                    </div>
+                )}
+            </div>
             <br />
 
 

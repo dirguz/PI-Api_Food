@@ -10,7 +10,7 @@ import Card from '../Card/Card';
 import Loading from '../Loading/Loading';
 import Filters from '../Filters/Filters';
 import Pagination from '../Pagination/Pagination';
-
+import Error404 from '../Error404/Error404';
 
 function Home() {
   const dispatch = useDispatch()
@@ -21,11 +21,18 @@ function Home() {
   const [order, setOrder] = useState("");
   const [isActive,setIsActive] = useState(1)
 
+  const [loading, setLoading] = useState(true)
+
+  if (allRecipes.length > 0 && loading) {
+    setLoading(false);
+  }
+
   const [currentPage, setCurrentPage] = useState(1)
   const recipesPerPage= 9
   const indexOfLastRecipe = currentPage * recipesPerPage
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage
-  const currentRecipe= allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe)
+  const currentRecipe=Array.from(allRecipes).slice(indexOfFirstRecipe, indexOfLastRecipe)
+  console.log('este es el current',currentRecipe);
   
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
@@ -44,7 +51,7 @@ function Home() {
       <div className='nav'>
         <Filters setCurrentPage={setCurrentPage} setOrder={setOrder} diets={diets} setIsActive={setIsActive} />
       </div>
-      {(allRecipes.length > 0) && (
+      {(allRecipes.length > 0) && !loading ?(
        <>
           <Pagination
           recipesPerPage={recipesPerPage}
@@ -72,8 +79,8 @@ function Home() {
              })}
           </div>
         </>
-      )}
-      {(allRecipes.length === 0) && <Loading/>}
+      ):(allRecipes.length === 0) && loading ? (<Loading/>):<Error404/>}
+  
     </div>
   )
 }

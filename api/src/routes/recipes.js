@@ -82,7 +82,7 @@ router.get('/recipes/:id', async (req, res) => {
                 image: el.image,
                 instructions: el.instructions
             })
-          }console.log("peticion realizada")
+          }
         })
 
     } catch (error) {

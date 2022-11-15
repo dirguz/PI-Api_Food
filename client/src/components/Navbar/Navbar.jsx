@@ -10,7 +10,7 @@ function Navbar() {
   useEffect(() => {}, [show])
   return (
     <header className={s.headerContainer}>
-      <p className={s.headerLogo} >App-Food</p>
+      <p className={s.headerLogo} ><Link to='/'>App-Food</Link></p>
       <SearchBar setShow={setShow}/>
       <Link to='/recipe'><button className={s.headerCreate} >Create recipe</button></Link>
     </header>

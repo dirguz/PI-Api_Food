@@ -3,6 +3,7 @@ import s from './SearchBar.module.css'
 import {get_Recipe_Name} from '../../actions/index.js'
 import {useDispatch} from 'react-redux'
 
+
 function SearchBar() {
   const dispatch=useDispatch();
   const [recipe, setRecipe]=useState('')
@@ -18,10 +19,9 @@ function SearchBar() {
     setRecipe('')
   }
 
-
   return (
     <form className={s.searchContainer} onSubmit={e=>handleSubmit(e)}>
-      <input type="text" className={s.searchInput} value={recipe} placeholder="search recipe" onChange={e=>handleInputChange(e)} />
+      <input type="text" className={s.searchInput} value={recipe} placeholder="Search recipe" onChange={e=>handleInputChange(e)} />
       <button type='submit' className={s.searchButton}>Search</button>
     </form>
   )

@@ -8,7 +8,7 @@ function Landingpage() {
   return (
     <div className={d.container}>
       <video className={d.video} src={landing1} autoPlay loop muted/>
-      <h1>API-Food</h1>
+      <h1>APP-Food</h1>
       <h2>Bienvenidos</h2>
       <div className={d.Link}>
         <Link to='/home'>

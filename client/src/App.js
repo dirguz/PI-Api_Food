@@ -4,6 +4,7 @@ import Landingpage from './components/LandingPage/Landingpage';
 import Home from './components/Home/Home';
 import DetailRecipe from './components/DetailRecipe/DetailRecipe';
 import CreateRecipe from './components/CreateRecipe/CreateRecipe';
+import Error404 from './components/Error404/Error404';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path='/home' component={Home}/>
           <Route exact path='/recipe' component={CreateRecipe} />
           <Route exact path="/recipes/:id" component={DetailRecipe} />
+          <Route exact path="*" component={Error404} />
         </Switch>
      </div>
     </BrowserRouter>

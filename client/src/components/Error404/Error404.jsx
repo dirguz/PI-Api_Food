@@ -21,6 +21,7 @@ function Error404() {
         <div className={s.oops_message}>
             <div className={s.button_err}>
             <Link to='/home'><button className={s.butinter}>Go back</button></Link>
+            <button className={s.butinter} onClick={() => window.location.reload()}>Refresh</button>
             </div>
         </div>
     </div>

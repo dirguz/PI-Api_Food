@@ -19,7 +19,7 @@ export const get_Recipe_Name = (name) => (dispatch) => {
     return fetch(`http://localhost:3001/recipes?name=${name}`)
     .then(response => response.json())
     .then(info => dispatch({type:SEARCH_BY_NAME, data:info}))
-    .catch(error=>dispatch({type:SEARCH_BY_NAME, data:[]}))
+    .catch(error=>dispatch({type:SEARCH_BY_NAME, data:{error:error.message}}))
 }
 
 export const filterByDiets = (diet) => {
