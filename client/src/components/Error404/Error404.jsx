@@ -1,22 +1,15 @@
 import React from 'react'
 import s from './Error404.module.css'
 import { Link } from 'react-router-dom'
+import e404 from '../../media/images/e404.gif'
 
 function Error404() {
   return (
     <div className={s.page_wrapper}>
         <h1 className={s.titlle}>4 0 4</h1>
-        <p className={s.paragraf}>No recipes found ! Please go back and try again.</p>
+        <p className={s.paragraf}>No recipes found ! Please go back or refresh and try again.</p>
         <div className={s.numbers_layer}>
-            <div className={s.number}>?</div>
-            <div className={s.number}>¿</div>
-            <div className={s.number}>Web</div>
-            <div className={s.number}>No found !</div>
-            <div className={s.number}>Web</div>
-            <div className={s.number}>No found !</div>
-            <div className={s.number}>?</div>
-            <div className={s.number}>¿</div>
-            <div className={`${s.number} ${s._with_shadow}`}>ERROR</div>
+        <img src={e404} alt="Recipe not found" />
         </div>
         <div className={s.oops_message}>
             <div className={s.button_err}>
