@@ -5,13 +5,16 @@ const dotenv= require('dotenv');
 dotenv.config();
 const { API_KEY1 } = process.env;
 const router= Router();
+const InfoTotal = require('../BDRecipe.json')
 
-const url=`https://api.spoonacular.com/recipes/complexSearch?number=100&addRecipeInformation=true&diet&apiKey=${API_KEY1}`
+// const url=`https://api.spoonacular.com/recipes/complexSearch?number=100&addRecipeInformation=true&diet&apiKey=${API_KEY1}`
+
+const urlApi = InfoTotal
 
 const allDiets = async () => {
   let dietsList=[];
-  let urlApi = await axios.get(url);
-  urlApi.data.results.map(e =>e.diets.forEach(d =>{ 
+  // let urlApi = await axios.get(url);
+  urlApi.results.map(e =>e.diets.forEach(d =>{ 
         dietsList.includes(d)? null:dietsList.push(d);
     }))
   dietsList.forEach(dieta=>{

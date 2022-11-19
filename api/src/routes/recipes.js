@@ -5,14 +5,17 @@ const dotenv= require('dotenv');
 dotenv.config();
 const { API_KEY1 } = process.env;
 const router= Router();
+const InfoTotal = require('../BDRecipe.json')
 
-const url=`https://api.spoonacular.com/recipes/complexSearch?number=100&addRecipeInformation=true&diet&apiKey=${API_KEY1}`
+// const url=`https://api.spoonacular.com/recipes/complexSearch?number=100&addRecipeInformation=true&diet&apiKey=${API_KEY1}`
+
+const urlApi = InfoTotal
 
 const allRecipesApi = async () => {
     try {
-        let urlApi = await axios.get(url);
+        // let urlApi = await axios.get(url);
         // console.log(urlApi.data);
-        let infoRecipes = await urlApi.data.results.map(e => {
+        let infoRecipes = await urlApi.results.map(e => {
             return {
                 id: e.id,
                 name: e.title,
