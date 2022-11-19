@@ -42,3 +42,43 @@
     border-radius: 50px;
     font-weight: bold;
 }
+
+@media screen and (max-width: 768px) {
+    .pageContainer{
+        width: fit-content;
+        max-width: 600px;
+        background-color: #F5F5F5;
+        border-radius: 50px;
+        margin-bottom: 20px;
+    }
+    .pagesList{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:center;
+        width: 100%;
+        margin-left:-40px;
+    }
+    .itemList{
+        list-style-type: none;
+        width: 20px;
+        height: 30px;
+        padding: 3px;
+        color:#0F1626;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 50px;
+        transition: all 0.3s ease-in-out;
+    }
+    .active{
+        background-color: #0F1626;
+        list-style-type: none;
+        width: 10px;
+        height: 10px;
+        padding: 10px;
+        color:#F5F5F5;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 50px;
+        font-weight: bold;
+    }
+}

@@ -39,21 +39,19 @@
     border-color: rgba(255, 255, 255, 0.8);
 }
 /* Media queries */
-@media screen and (min-width: 768px){
+@media screen and (max-width: 768px){
     .headerContainer{
         align-items: center;
         justify-content: center;
-        flex-direction: row;
-    }
-    .headerFilters{
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
+        flex-direction: column;
+        gap: 3px;
+        height: 150px;
+        padding: 2px;
     }
 
     .headerLogo{
-        font-size: 4rem;
-
+        margin-top: 70px;
+        font-size: 30px;
         text-transform: uppercase;
     }
 }

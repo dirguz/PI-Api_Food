@@ -14,7 +14,7 @@ function Card({id, image, name, health_score, dietType, dishTypes}) {
             </div>
             <div className={`${s.face} ${s.face2}`}>
               <div className={s.content}>
-                <p>Diets:</p>
+                <p className={s.dietasTitle}>Diets:</p>
                <div className={s.dietas}>
                 {dietType?.map(diet => {
                 return (
@@ -22,8 +22,8 @@ function Card({id, image, name, health_score, dietType, dishTypes}) {
                 )
                 })}
                </div>
-                <p>Health Score: {health_score}</p>
-                <p>Dish Types: {dishTypes}</p>
+                <p className={s.dietasTitle}>Health Score: {health_score}</p>
+                <p className={s.dietasTitle}>Dish Types:</p><p> {dishTypes}</p>
                 <Link to={`/recipes/${id}`}  key = {id} >
                 <button className={s.button}>Recipe detail</button>
                 </Link>
