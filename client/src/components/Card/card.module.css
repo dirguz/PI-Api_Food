@@ -45,14 +45,19 @@
   border-radius: 5px;
 }
 
+.recipeName{
+  margin-top: 10px;
+  width: 370px;
+  min-height: 100px;
+}
+
 .cardContainer .card .face.face1 .content h3{
-  margin: 0;
-  padding: 0;
   color: #F5F5F5;
-  text-align: center;
+  text-align:center;
   font-size: 20px;
+  word-wrap: break-word;
   font-weight: bold;
-  background-color: #AB987A;
+  background-color: #FF533D;
   border:2px solid #0F1626
 }
 

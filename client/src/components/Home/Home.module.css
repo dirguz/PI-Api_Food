@@ -1,7 +1,7 @@
 .home_container{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: auto;
     min-height: 100vh;
     height: fit-content;
     background:#0F1626;
@@ -10,7 +10,7 @@
 .homeList{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    margin-top: 20px;
+    margin-top: 50px;
     margin-left: 110px;
 }
 

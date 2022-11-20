@@ -9,7 +9,9 @@ function Card({id, image, name, health_score, dietType, dishTypes}) {
             <div className={`${s.face} ${s.face1}`}>
                 <div className={s.content}>
                     <img src={image} alt={name}/>
-                    <h3>{name}</h3>
+                    <div className={s.recipeName}>
+                     <h3>{name}</h3>
+                    </div>
                 </div>
             </div>
             <div className={`${s.face} ${s.face2}`}>
